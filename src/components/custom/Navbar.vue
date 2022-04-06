@@ -17,6 +17,11 @@
             Registration
           </router-link>
         </b-nav-item>
+        <b-nav-item>
+          <router-link to="/posts">
+            Posts
+          </router-link>
+        </b-nav-item>
         <b-nav-item v-if="token">
           <router-link to="/logout">
             logout
