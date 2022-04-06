@@ -1,3 +1,4 @@
+
 {
   "name": "project-frontend",
   "version": "1.0.0",
@@ -7,7 +8,11 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+
+  "postinstall": "npm run build",
+  "start": "node server.js"
+
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -59,6 +64,7 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
+
   "browserslist": [
     "> 1%",
     "last 2 versions",
