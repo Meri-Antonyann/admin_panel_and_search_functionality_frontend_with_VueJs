@@ -12,7 +12,7 @@
             <router-link to="/" class="m-2">Home</router-link>
           </b-navbar-item>
           <b-navbar-item  >
-            <router-link to="/posts" class="m-2">Posts</router-link>
+            <router-link to="/posts" v-if="token" class="m-2">Posts</router-link>
           </b-navbar-item>
         </b-navbar-nav>
 
@@ -22,7 +22,7 @@
 
           <b-nav-item-dropdown text="Action" right>
              <b-dropdown-item href="/login"> Login </b-dropdown-item>
-            <b-dropdown-item href="/logout"> Log out</b-dropdown-item>
+            <b-dropdown-item href="/logout" @click="logout"> Log out</b-dropdown-item>
 
 
 
@@ -71,13 +71,23 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+
 export default {
   data(){
     return{
       token: null
     }
   },
+  mounted() {
+    this.Usertoken()
 
+  },
+  methods: {
+     Usertoken(){
+        this.token = localStorage.getItem('access_token')
+      },
+  }
 
 }
 </script>
