@@ -115,10 +115,10 @@ export default {
     async UserData() {
       await this.GET_USER_DATA()
         .then(res => {
-          if(res ) {
-            console.log(res )
+          if(res) {
+            console.log(res)
             this.data = this.getUser()
-            console.log(this.data)
+            console.log(this.getUser())
           }
           localStorage.setItem('email', this.data.email)
         })
