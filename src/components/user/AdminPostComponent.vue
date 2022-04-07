@@ -12,7 +12,7 @@
           <th>Description</th>
           <th>Text</th>
           <th>Image</th>
-          <th>Action</th>
+          <th v-if="token">Action</th>
         </tr>
         </thead>
         <tbody v-if="posts.length > 0  " >

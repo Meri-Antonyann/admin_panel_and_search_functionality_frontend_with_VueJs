@@ -22,7 +22,7 @@
 
           <b-nav-item-dropdown text="Action" right>
              <b-dropdown-item href="/login"> Login </b-dropdown-item>
-            <b-dropdown-item href="/logout" v-if="token" @click="logout"> Log out</b-dropdown-item>
+            <b-dropdown-item  v-if="token" @click="logout"> Log out</b-dropdown-item>
 
 
 
@@ -34,40 +34,6 @@
   </div>
 
 
-
-
-
-<!--  <div>-->
-<!--    <b-navbar type="dark" variant="dark">-->
-<!--      <b-navbar-nav >-->
-<!--        <b-nav-item>-->
-<!--          <router-link to="/">-->
-<!--            Home-->
-<!--          </router-link>-->
-<!--        </b-nav-item>-->
-<!--        <b-nav-item>-->
-<!--          <router-link to="/login">-->
-<!--            Login-->
-<!--          </router-link>-->
-<!--        </b-nav-item>-->
-<!--        <b-nav-item>-->
-<!--          <router-link to="/register">-->
-<!--            Registration-->
-<!--          </router-link>-->
-<!--        </b-nav-item>-->
-<!--        <b-nav-item>-->
-<!--          <router-link to="/posts">-->
-<!--            Posts-->
-<!--          </router-link>-->
-<!--        </b-nav-item>-->
-<!--        <b-nav-item v-if="token">-->
-<!--          <router-link to="/logout">-->
-<!--            logout-->
-<!--          </router-link>-->
-<!--        </b-nav-item>-->
-<!--      </b-navbar-nav>-->
-<!--    </b-navbar>-->
-<!--  </div>-->
 </template>
 
 <script>
