@@ -19,7 +19,7 @@ export default {
   actions: {
     LOGIN_USER(context, data) {
       return new Promise((resolve, reject) => {
-        axios.post('api/login', data)
+        axios.post('/login', data)
           .then(result => {
             resolve(true)
           }).catch(error => {
@@ -31,7 +31,7 @@ export default {
 
     GET_USER_DATA(context){
       return new Promise((resolve, reject) => {
-        axios.get('api/me')
+        axios.get('/me')
           .then((res) => {
             if (res.status === 200){
               context.commit('setUserData', res.data.user)
