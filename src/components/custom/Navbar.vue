@@ -2,14 +2,18 @@
 
   <div>
     <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+          <b-navbar-item  >
+            <router-link to="/">Home</router-link>
+          </b-navbar-item>
+          <b-navbar-item  >
+            <router-link to="/posts">Posts</router-link>
+          </b-navbar-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -23,19 +27,23 @@
             <b-dropdown-item  >
             <router-link to="/login">Login</router-link>
             </b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
+            <b-dropdown-item  >
+              <router-link to="/register">Login</router-link>
+            </b-dropdown-item>
+            <b-dropdown-item  >
+              <router-link to="/Log out">Login</router-link>
+            </b-dropdown-item>
+
           </b-nav-item-dropdown>
 
-          <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
-            <template #button-content>
-              <em>User</em>
-            </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-          </b-nav-item-dropdown>
+<!--          <b-nav-item-dropdown right>-->
+<!--            &lt;!&ndash; Using 'button-content' slot &ndash;&gt;-->
+<!--            <template #button-content>-->
+<!--              <em>User</em>-->
+<!--            </template>-->
+<!--            <b-dropdown-item href="#">Profile</b-dropdown-item>-->
+<!--            <b-dropdown-item href="#">Sign Out</b-dropdown-item>-->
+<!--          </b-nav-item-dropdown>-->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
