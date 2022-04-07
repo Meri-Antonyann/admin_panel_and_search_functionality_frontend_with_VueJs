@@ -6,7 +6,7 @@
       <h3>{{ post.description }}</h3>
       <h2>{{ post.text }}</h2>
       <div>
-        <img v-for="(img,key) in post.files" :key="key" :src="'http://127.0.0.1:8000/images/' + img.name" alt="img" style="width: 200px; height: 200px;" class="m-1">
+        <img v-for="(img,key) in post.files" :key="key" :src="'https://projectwithlaravelvuejs.herokuapp.com/images/' + img.name" alt="img" style="width: 200px; height: 200px;" class="m-1">
       </div>
     </b-col>
 
