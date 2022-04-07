@@ -27,8 +27,8 @@
           </td>
 
           <td>
-            <router-link :to='{name:"Edit",params:{id:post.id}}' class="btn btn-warning">Edit</router-link>
-            <button type="button" class="btn btn-danger" @click="clear(post.id)">Delete</button>
+            <router-link :to='{name:"Edit",params:{id:post.id}}' v-if="token" class="btn btn-warning">Edit</router-link>
+            <button type="button" class="btn btn-danger" v-if="token" @click="clear(post.id)">Delete</button>
           </td>
 
         </tr>
@@ -49,11 +49,13 @@ export default {
 
   data(){
     return {
-      posts:[]
+      posts:[],
+      token:null
     }
   },
   mounted() {
-   this.getPosts()
+   this.getPosts(),
+     this.gettoken()
   },
 
   methods:{
@@ -66,7 +68,9 @@ export default {
         this.posts = []
       })
     },
-
+    gettoken(){
+          this.token = localStorage.getItem('access_token')
+    },
     clear(id){
      if (confirm('Do you want to delete this post?'))
        this.axios.post(`postdel/${id}`).then(response=>{
