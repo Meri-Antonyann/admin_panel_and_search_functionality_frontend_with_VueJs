@@ -3,13 +3,16 @@ import axios from "axios";
 export default {
   state: {
     logged_user: {},
-
+    token: ''
   },
   mutations: {
     setUserData(state, data) {
       return state.logged_user = data;
     },
-
+    setToken(state, data){
+      state.token = data;
+      localStorage.setItem('access_token', data);
+    }
   },
   getters: {
     getUser(state) {
@@ -21,9 +24,10 @@ export default {
       return new Promise((resolve, reject) => {
         axios.post('/login', data)
           .then(result => {
+            context.commit('setToken', result.data.token)
             resolve(true)
           }).catch(error => {
-            reject(error)
+          reject(error)
         })
       })
     },
