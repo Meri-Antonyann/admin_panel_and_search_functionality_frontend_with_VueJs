@@ -9,25 +9,22 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-navbar-item  >
-            <router-link to="/">Home</router-link>
+            <router-link to="/" class="m-2">Home</router-link>
           </b-navbar-item>
           <b-navbar-item  >
-            <router-link to="/posts">Posts</router-link>
+            <router-link to="/posts" class="m-2">Posts</router-link>
           </b-navbar-item>
         </b-navbar-nav>
 
-        <!-- Right aligned nav items -->
+
         <b-navbar-nav class="ml-auto">
 
 
-          <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item  >
-            <router-link to="/login">Login</router-link>
-            </b-dropdown-item>
+          <b-nav-item-dropdown text="Action" right>
+             <b-dropdown-item href="/login"> Login </b-dropdown-item>
+            <b-dropdown-item href="/logout"> Log out</b-dropdown-item>
 
-            <b-dropdown-item  >
-              <router-link to="/Log out">Login</router-link>
-            </b-dropdown-item>
+
 
           </b-nav-item-dropdown>
 
