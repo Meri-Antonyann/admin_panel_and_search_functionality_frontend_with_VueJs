@@ -110,7 +110,7 @@
             <p v-for="(file,key) in files" :key="key">{{ file.name }} </p>
 
             <button class="btn btn-primary" >Save</button>
-             <router-link to="/posts" class="btn btn-primary">Posts</router-link>
+
           </b-form>
            </validation-observer>
 

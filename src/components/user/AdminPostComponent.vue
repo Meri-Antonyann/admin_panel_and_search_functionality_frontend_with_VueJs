@@ -2,12 +2,12 @@
 
   <div class="card-body">
     <div class="table-responsive">
-      <router-link to="profile" class="btn btn-primary"> Profile </router-link>
+      <router-link to="profile" class="btn btn-primary"> Create post </router-link>
       <h1 class="text-center mb-5">Posts</h1>
       <table class="table table-bordered">
         <thead>
         <tr>
-          <th>ID</th>
+
           <th>Title</th>
           <th>Description</th>
           <th>Text</th>
@@ -17,7 +17,7 @@
         </thead>
         <tbody v-if="posts.length > 0  " >
         <tr v-for="(post,key) in posts" :key="key">
-          <td >{{ post.id }}</td>
+
           <td>{{ post.title }}</td>
           <td>{{ post.description }}</td>
           <td>{{ post.text }}</td>

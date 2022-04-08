@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="info" class="_navbar">
 
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -21,7 +21,7 @@
 
 
           <b-nav-item-dropdown text="Action" right>
-             <b-dropdown-item href="/login"> Login </b-dropdown-item>
+             <b-dropdown-item href="/login" v-if="!token"> Login </b-dropdown-item>
             <b-dropdown-item  v-if="token" @click="logout"> Log out</b-dropdown-item>
 
 
@@ -67,4 +67,9 @@ a {
     text-decoration: none;
   color: #e2e8f0;
 }
+
+._navbar{
+  position: fixed;
+}
+
 </style>
