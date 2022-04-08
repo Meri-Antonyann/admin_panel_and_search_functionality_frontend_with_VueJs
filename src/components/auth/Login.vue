@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-5">
-    <b-container class="px-0 mt-5">
+  <div  >
+    <b-container class="px-0 mt-5 _login">
       <b-row>
         <b-col
           cols="5"
@@ -111,3 +111,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+._login{
+  margin-top: 20px;
+}
+</style>
