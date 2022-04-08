@@ -40,18 +40,14 @@
         </tr>
         </tbody>
       </table>
-      <pagination align="center" :data="posts" @pagination-change-page="getPosts"></pagination>
     </div>
   </div>
 
 </template>
 
 <script>
-import pagination from 'laravel-vue-pagination'
 export default {
-  components:{
-    pagination
-  },
+
   data(){
     return {
       posts:[],
@@ -64,8 +60,8 @@ export default {
   },
 
   methods:{
-    async getPosts(page=1){
-      await this.axios.get(`/post?page=${page}`).then(response=>{
+    async getPosts(){
+      await this.axios.get('post').then(response=>{
         console.log(response.data.posts)
         this.posts = response.data.posts
       }).catch(error=>{
