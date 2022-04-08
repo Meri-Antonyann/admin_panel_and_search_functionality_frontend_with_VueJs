@@ -2,7 +2,7 @@
 
   <div class="card-body">
     <div class="table-responsive">
-      <router-link to="profile" class="btn btn-primary"> Create post </router-link>
+      <router-link to="profile" class="btn btn-primary" v-if="token"> Create post </router-link>
       <h1 class="text-center mb-5">Posts</h1>
       <table class="table table-bordered">
         <thead>
