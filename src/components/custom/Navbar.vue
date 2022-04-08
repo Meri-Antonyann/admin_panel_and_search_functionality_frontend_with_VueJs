@@ -14,6 +14,9 @@
           <b-navbar-item  >
             <router-link to="/posts"  class="m-2">Posts</router-link>
           </b-navbar-item>
+          <b-navbar-item  >
+            <router-link to="/profile" class="btn btn-primary" v-if="token"> Create post </router-link>
+          </b-navbar-item>
         </b-navbar-nav>
 
 

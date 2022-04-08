@@ -7,7 +7,7 @@
           md="8"
           lg="7"
           xl="5"
-          class="mx-auto mt-5"
+          class="mx-auto mt-5 text-center"
 
         >
 
