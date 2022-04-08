@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info" class="fixed-top" style="max-width:inherit;margin:auto">
+    <b-navbar toggleable="lg" type="dark" variant="info" class="fixed-top" style="max-width:inherit; ">
 
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
