@@ -15,12 +15,15 @@
             <router-link to="/posts"  class="m-2">Posts</router-link>
           </b-navbar-item>
           <b-navbar-item  >
-            <router-link to="/profile" class="btn btn-primary" v-if="token"> Create post </router-link>
+            <router-link to="/profile" class="m-2" v-if="token"> Create post </router-link>
           </b-navbar-item>
         </b-navbar-nav>
 
 
         <b-navbar-nav class="ml-auto">
+          <b-navbar-item class="h4" v-if="token" >
+             {{data.name}}
+          </b-navbar-item>
 
 
           <b-nav-item-dropdown text="Action" right>
@@ -45,17 +48,36 @@ import {mapActions, mapGetters} from "vuex";
 export default {
   data(){
     return{
+      data:{},
       token: null
     }
   },
    mounted() {
-    this.Usertoken()
-
+    this.Usertoken(),
+      this.UserData()
   },
   methods: {
      Usertoken(){
         this.token = localStorage.getItem('access_token')
       },
+
+    ...mapActions(["GET_USER_DATA"]),
+    ...mapGetters(['getUser']),
+    async UserData() {
+      await this.GET_USER_DATA()
+        .then(res => {
+          if(res) {
+            console.log(res)
+            this.data = this.getUser()
+            console.log(this.getUser())
+          }
+          localStorage.setItem('email', this.data.email)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+
     logout(){
        localStorage.removeItem('access_token')
       this.$router.push({name: "Login"})

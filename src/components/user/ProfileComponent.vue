@@ -1,7 +1,7 @@
 <template>
     <section class="section about-section gray-bg  mt-5" id="about">
-       <div class="container">
-       <div class="row text-center  ">
+       <div class="container mt-5">
+          <div class="row text-center ">
          <div class="col-lg-6">
            <div class="about-text go-to">
              <h3 class="dark-color"> {{ data.name }}</h3>
