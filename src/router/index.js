@@ -22,7 +22,7 @@ const router =new Router({
 
 router.beforeEach((to, from,  next)=>{
   const authuser = localStorage.getItem('access_token')
-  if (to.name !== 'Posts' && to.name !== 'HelloWorld'  && to.name !== 'ErrorPage' && to.name !== 'Search'  && !authuser ) next({ name: 'ErrorPage' })
+  if (to.name !== 'Posts' && to.name !== 'Login' &&to.name !== 'HelloWorld'  && to.name !== 'ErrorPage' && to.name !== 'Search'  && !authuser ) next({ name: 'ErrorPage' })
   else next()
 
 })
