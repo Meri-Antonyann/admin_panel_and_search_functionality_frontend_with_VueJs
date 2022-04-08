@@ -4,7 +4,7 @@
           <div class="row text-center ">
          <div class="col-lg-6">
            <div class="about-text go-to mt-5">
-             <h3 class="dark-color"> {{ data.name }}</h3>
+             <h3 class="dark-color mt-5"> {{ data.name }}</h3>
              <h6 class="theme-color lead">{{ data.email }}</h6>
            </div>
          </div>

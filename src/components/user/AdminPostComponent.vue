@@ -18,7 +18,7 @@
         <tr v-for="(post,key) in posts" :key="key">
 
           <td>
-          <router-link class="h5" :to='{name:"Search",params:{id:post.id}}'>  {{ post.title }} </router-link>
+          <router-link class="h3 text-secondary" :to='{name:"Search",params:{id:post.id}}'>  {{ post.title }} </router-link>
           </td>
           <td>{{ post.description }}</td>
           <td>{{ post.text }}</td>
