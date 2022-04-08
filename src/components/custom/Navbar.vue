@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info" class="_navbar">
+    <b-navbar toggleable="lg" type="dark" variant="info" class="fixed-top" style="max-width:inherit;margin:auto">
 
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -68,8 +68,5 @@ a {
   color: #e2e8f0;
 }
 
-._navbar{
-  position: fixed;
-}
 
 </style>
