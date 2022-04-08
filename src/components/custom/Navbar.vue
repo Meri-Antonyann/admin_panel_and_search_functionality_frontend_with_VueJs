@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info" class="fixed-top" style="max-width:inherit; margin:auto">
+    <b-navbar toggleable="lg" type="dark" variant="info" class="fixed-top mb-5" style="max-width:inherit; margin:auto">
 
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -21,7 +21,7 @@
 
 
         <b-navbar-nav class="ml-auto">
-          <b-navbar-item class="h5" v-if="token" >
+          <b-navbar-item class="h5" v-if="token" class="text-light">
              {{data.name}}
           </b-navbar-item>
 
