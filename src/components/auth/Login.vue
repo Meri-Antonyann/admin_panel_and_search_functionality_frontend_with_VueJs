@@ -1,13 +1,14 @@
 <template>
   <div  >
-    <b-container class="px-0 mt-5 _login">
+    <b-container class="px-0 mt-5  ">
       <b-row>
         <b-col
           cols="5"
           md="8"
           lg="7"
           xl="5"
-          class="mx-auto"
+          class="mx-auto mt-5"
+
         >
 
           <h3>
@@ -113,7 +114,5 @@ export default {
 </script>
 
 <style scoped>
-._login{
-  margin-top: 70px;
-}
+
 </style>
