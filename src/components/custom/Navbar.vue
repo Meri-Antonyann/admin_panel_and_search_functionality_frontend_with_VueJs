@@ -21,7 +21,7 @@
 
 
         <b-navbar-nav class="ml-auto">
-          <b-navbar-item class="h4" v-if="token" >
+          <b-navbar-item class="h5" v-if="token" >
              {{data.name}}
           </b-navbar-item>
 
