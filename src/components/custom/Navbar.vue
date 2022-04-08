@@ -45,7 +45,7 @@ export default {
       token: null
     }
   },
-  mounted() {
+   mounted() {
     this.Usertoken()
 
   },

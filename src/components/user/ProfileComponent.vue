@@ -14,54 +14,84 @@
        <b-row class="m-0 m-auto p-5" style="width: 700px; height: auto;">
          <b-col>
            <h4 class="text-center">Add Post</h4>
-
+           <validation-observer ref="observer">
           <b-form @submit.prevent="savepost" >
+            <validation
+              name="title"
+              rules="required|min:4"
+            >
             <b-form-group
               id="fieldset-horizontal"
               label-cols-sm="4"
               label-cols-lg="3"
               label="Enter Title"
               label-for="input-horizontal"
+              v-slot="{ errors }"
+              :invalid-feedback="errors[0]"
             >
               <b-form-input
                 v-model="title"
                 id="input-horizontal">
-
+                :state="errors[0] ? false : null"
+                trim
               </b-form-input>
             </b-form-group>
-
+            </validation>
+            <validation
+              name="description"
+              rules="required|min:4"
+            >
             <b-form-group
               id="desc"
               label-cols-sm="4"
               label-cols-lg="3"
               label="Short description"
               label-for="input-horizontal"
+              v-slot="{ errors }"
+              :invalid-feedback="errors[0]"
+
             >
               <b-form-input
                 v-model="description"
                 id="desc">
+                :state="errors[0] ? false : null"
+                trim
               </b-form-input>
             </b-form-group>
+            </validation>
 
+            <validation
+              name="description"
+              rules="required"
+            >
             <b-form-group
               id="text"
               label-cols-sm="4"
               label-cols-lg="3"
               label="Text"
               label-for="input-horizontal"
+              v-slot="{ errors }"
+              :invalid-feedback="errors[0]"
             >
               <b-form-textarea
                 v-model="text"
                 id="desc">
+                :state="errors[0] ? false : null"
+                trim
               </b-form-textarea>
             </b-form-group>
-
+            </validation>
+              <validation
+                name="image"
+                rules="required"
+              >
             <b-form-group
-
               label-cols-sm="4"
               label-cols-lg="3"
               label="File"
               label-for="file"
+              v-slot="{ errors }"
+              :invalid-feedback="errors[0]"
 
             >
               <b-form-file
@@ -71,16 +101,18 @@
                 v-model="files"
                 multiple
                 placeholder="Choose a file or drop it here..." >
-
+                :state="errors[0] ? false : null"
+                trim
               </b-form-file>
 
             </b-form-group>
-
+              </validation>
             <p v-for="(file,key) in files" :key="key">{{ file.name }} </p>
 
             <button class="btn btn-primary" >Save</button>
              <router-link to="/posts" class="btn btn-primary">Posts</router-link>
           </b-form>
+           </validation-observer>
 
          </b-col>
        </b-row>
