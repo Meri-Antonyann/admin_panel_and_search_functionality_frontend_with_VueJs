@@ -26,7 +26,7 @@
               label-cols-lg="3"
               label="Enter Title"
               label-for="input-horizontal"
-              v-slot="{ errors }"
+              slot-scope="{ errors }"
               :invalid-feedback="errors[0]"
             >
               <b-form-input
@@ -47,7 +47,7 @@
               label-cols-lg="3"
               label="Short description"
               label-for="input-horizontal"
-              v-slot="{ errors }"
+              slot-scope="{ errors }"
               :invalid-feedback="errors[0]"
 
             >
@@ -70,7 +70,7 @@
               label-cols-lg="3"
               label="Text"
               label-for="input-horizontal"
-              v-slot="{ errors }"
+              slot-scope="{ errors }"
               :invalid-feedback="errors[0]"
             >
               <b-form-textarea
@@ -90,7 +90,7 @@
               label-cols-lg="3"
               label="File"
               label-for="file"
-              v-slot="{ errors }"
+              slot-scope="{ errors }"
               :invalid-feedback="errors[0]"
 
             >
