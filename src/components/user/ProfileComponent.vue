@@ -169,6 +169,9 @@ export default {
     },
 
     async savepost() {
+      let valid = await this.$refs.observer.validate();
+      if (!valid) return false;
+
       const config = {
         headers: {
           'content-type': 'multipart/form-data',
