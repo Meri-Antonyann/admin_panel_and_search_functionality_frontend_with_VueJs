@@ -114,6 +114,6 @@ export default {
 
 <style scoped>
 ._login{
-  margin-top: 20px;
+  margin-top: 70px;
 }
 </style>
