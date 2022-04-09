@@ -39,6 +39,7 @@
           <td colspan="4" align="center">No Posts Found.</td>
         </tr>
         </tbody>
+        <Page :total="100" />
       </table>
     </div>
   </div>
