@@ -136,26 +136,24 @@ export default {
 
     }
   },
-
+  computed: {
+  ...mapActions(["GET_USER_DATA"]),
+  ...mapGetters(['getUser']),
+  },
   mounted() {
     this.UserData()
-
   },
   methods: {
-    ...mapActions(["GET_USER_DATA"]),
-    ...mapGetters(['getUser']),
+
     async UserData() {
       await this.GET_USER_DATA()
         .then(res => {
           if(res) {
-            console.log(res)
             this.data = this.getUser()
-            console.log(this.getUser())
           }
-          localStorage.setItem('email', this.data.email)
         })
         .catch((error) => {
-          console.log(error)
+            throw error
         })
     },
 
