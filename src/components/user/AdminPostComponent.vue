@@ -56,11 +56,7 @@ export default {
       token:null
     }
   },
-  computed: {
-    getUser(){
-      return this.$store.getters('getUser')
-    }
-  },
+
   mounted() {
    this.getPosts();
    this.gettoken()
