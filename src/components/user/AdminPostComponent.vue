@@ -28,7 +28,7 @@
           </td>
 
           <td>
-            <router-link :to='{name:"Edit",params:{id:post.id}}' v-if="getUser.length" class="btn btn-warning">Edit</router-link>
+            <router-link :to='{name:"Edit",params:{id:post.id}}' v-if="token" class="btn btn-warning">Edit</router-link>
             <button type="button" class="btn btn-danger" v-if="token" @click="clear(post.id)">Delete</button>
           </td>
 
