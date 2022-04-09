@@ -137,14 +137,15 @@ export default {
     }
   },
   computed: {
-  ...mapActions(["GET_USER_DATA"]),
-  ...mapGetters(['getUser']),
+    getUser(){
+      return this.$store.getters('getUser')
+    }
   },
   mounted() {
     this.UserData()
   },
   methods: {
-
+    ...mapActions(["GET_USER_DATA"]),
     async UserData() {
       await this.GET_USER_DATA()
         .then(res => {

@@ -57,7 +57,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getUser']),
+    getUser(){
+      return this.$store.getters('getUser')
+    }
   },
   mounted() {
    this.getPosts();
