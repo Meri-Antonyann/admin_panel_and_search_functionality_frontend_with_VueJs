@@ -39,7 +39,7 @@
           <td colspan="4" align="center">No Posts Found.</td>
         </tr>
         </tbody>
-        <Page :total="100" />
+        <pagination :data="posts" @pagination-change-page="getPosts"></pagination>
       </table>
     </div>
   </div>
@@ -64,8 +64,12 @@ export default {
   },
 
   methods:{
-    async getPosts(){
-      await this.axios.get('post').then(response=>{
+    async getPosts(page){
+      if (typeof page === 'undefined') {
+        page = 1;
+      }
+
+      await this.axios.get('post?page=' + page).then(response=>{
         console.log(response.data.posts)
         this.posts = response.data.posts
       }).catch(error=>{
