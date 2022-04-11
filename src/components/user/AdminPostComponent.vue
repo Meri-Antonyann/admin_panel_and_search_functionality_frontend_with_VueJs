@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <tbody v-if="posts.length > 0  " >
-        <tr v-for="(post,key) in posts" :key="key">
+        <tr v-for="(post,key) in posts.data" :key="key">
 
           <td>
           <router-link class="h4 text-secondary" :to='{name:"Search",params:{id:post.id}}'>  {{ post.title }} </router-link>
@@ -61,7 +61,7 @@ export default {
 
   data(){
     return {
-      posts:[],
+      posts:{},
       token:null
     }
   },
@@ -75,7 +75,7 @@ export default {
     async getPosts(page=1){
 
 
-      await this.axios.get('post').then(response=>{
+      await this.axios.get('post?page=' + page).then(response=>{
         console.log(response.data.posts)
         this.posts = response.data.posts
       }).catch(error=>{
