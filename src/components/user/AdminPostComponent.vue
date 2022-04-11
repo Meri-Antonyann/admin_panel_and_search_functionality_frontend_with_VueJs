@@ -40,11 +40,18 @@
         </tr>
         </tbody>
 <!--        <pagination :data="posts" @pagination-change-page="getPosts"></pagination>-->
-        <pagination :data="posts" @pagination-change-page="getPosts" ></pagination>
-        <pagination :data="posts">
-          <span slot="prev-nav">&lt; Previous</span>
-          <span slot="next-nav">Next &gt;</span>
-        </pagination>
+<!--        <pagination :data="posts" @pagination-change-page="getPosts" ></pagination>-->
+<!--        <pagination :data="posts">-->
+<!--          <span slot="prev-nav">&lt; Previous</span>-->
+<!--          <span slot="next-nav">Next &gt;</span>-->
+<!--        </pagination>-->
+
+        <v-pagination
+          v-model="pagination.current"
+          :length="pagination.total"
+          @input="onPageChange"
+        ></v-pagination>
+
       </table>
     </div>
   </div>
@@ -53,17 +60,15 @@
 
 <script>
 import { mapGetters } from "vuex";
-import pagination from 'laravel-vue-pagination';
-export default {
-  components: {
-    pagination
-  },
+ export default {
+
 
   data(){
     return {
-      posts:{
-        type:Object,
-        default:null
+      posts:[],
+      pagination: {
+        current: 1,
+        total: 0
       },
       token:null
     }
@@ -78,14 +83,20 @@ export default {
     async getPosts(page=1){
 
 
-      await this.axios.get(`/post?page=${page}`).then(response=>{
+      await this.axios.get('/post?page=' + this.pagination.current).then(response=>{
         console.log(response.data.posts)
         this.posts = response.data.posts
+        this.pagination.current = response.data.current_page;
+        this.pagination.total = response.data.last_page;
       }).catch(error=>{
         console.log(error)
 
       })
     },
+    onPageChange() {
+      this.getPosts();
+    },
+
     gettoken(){
           this.token = localStorage.getItem('access_token')
     },
