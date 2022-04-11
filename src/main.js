@@ -2,8 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from "./store";
-import pagination from 'laravel-vue-pagination'
-
+Vue.component('pagination', require('laravel-vue-pagination'));
 require('./plugins')
 
 Vue.config.productionTip = false
@@ -13,6 +12,6 @@ new Vue({
   el: '#app',
   router,
   store,
-  components: { App, pagination },
+  components: { App },
   template: '<App/>'
 })

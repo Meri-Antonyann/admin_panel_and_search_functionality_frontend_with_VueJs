@@ -21,7 +21,7 @@
 
 
         <b-navbar-nav class="ml-auto">
-          <b-navbar-item class="h5" v-if="token" class="text-light">
+          <b-navbar-item class="h5 text-light" v-if="token" >
              {{data.name}}
           </b-navbar-item>
 
@@ -67,7 +67,6 @@ export default {
       await this.GET_USER_DATA()
         .then(res => {
           if(res) {
-            console.log(res)
             this.data = this.getUser()
             console.log(this.getUser())
           }
