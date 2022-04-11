@@ -46,13 +46,14 @@
 <!--          <span slot="next-nav">Next &gt;</span>-->
 <!--        </pagination>-->
 
-        <v-pagination
-          v-model="pagination.current"
-          :length="pagination.total"
-          @input="onPageChange"
-        ></v-pagination>
+
 
       </table>
+      <v-pagination
+        v-model="pagination.current"
+        :length="pagination.total"
+        @input="onPageChange"
+      ></v-pagination>
     </div>
   </div>
 
