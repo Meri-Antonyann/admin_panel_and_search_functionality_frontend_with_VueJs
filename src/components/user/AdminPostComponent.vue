@@ -86,7 +86,7 @@ import { mapGetters } from "vuex";
 
       await this.axios.get('post?page=' + this.pagination.current).then(response=>{
         console.log(response.data.posts)
-        this.posts = response.data.posts
+        this.posts = response.data.posts.data
         this.pagination.current = response.data.posts.current_page;
         console.log(response.data.posts.current_page)
         this.pagination.total = response.data.posts.last_page;
