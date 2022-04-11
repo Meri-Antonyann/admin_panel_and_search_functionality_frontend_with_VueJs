@@ -53,9 +53,11 @@
 
 <script>
 import { mapGetters } from "vuex";
-
+import LaravelVuePagination from 'laravel-vue-pagination';
 export default {
-
+  components: {
+    'pagination': LaravelVuePagination
+  },
   data(){
     return {
       posts:[],
