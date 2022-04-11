@@ -40,7 +40,7 @@
         </tr>
         </tbody>
 <!--        <pagination :data="posts" @pagination-change-page="getPosts"></pagination>-->
-        <Pagination :data="posts" @pagination-change-page="getPosts" />
+        <pagination :data="posts" @pagination-change-page="getPosts" ></pagination>
         <pagination :data="posts">
           <span slot="prev-nav">&lt; Previous</span>
           <span slot="next-nav">Next &gt;</span>
@@ -53,10 +53,10 @@
 
 <script>
 import { mapGetters } from "vuex";
-import LaravelVuePagination from 'laravel-vue-pagination';
+import pagination from 'laravel-vue-pagination';
 export default {
   components: {
-    'Pagination': LaravelVuePagination
+    pagination
   },
 
   data(){
