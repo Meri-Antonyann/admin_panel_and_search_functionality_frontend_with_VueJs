@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <tbody v-if="posts.length > 0  " >
-        <tr v-for="(post,key) in posts.data" :key="key">
+        <tr v-for="(post,key) in posts" :key="key">
 
           <td>
           <router-link class="h4 text-secondary" :to='{name:"Search",params:{id:post.id}}'>  {{ post.title }} </router-link>
