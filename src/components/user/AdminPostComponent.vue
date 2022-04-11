@@ -61,7 +61,10 @@ export default {
 
   data(){
     return {
-      posts:{},
+      posts:{
+        type:Object,
+        default:null
+      },
       token:null
     }
   },
@@ -80,7 +83,7 @@ export default {
         this.posts = response.data.posts
       }).catch(error=>{
         console.log(error)
-        this.posts = []
+
       })
     },
     gettoken(){
