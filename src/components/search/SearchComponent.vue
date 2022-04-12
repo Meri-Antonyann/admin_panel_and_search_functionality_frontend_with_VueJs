@@ -4,7 +4,7 @@
   <b-row>
 
     <b-col class="text-center mt-5 text-warning ">
-      <router-link   class="m-2 btn text-light  btn btn-primary"  :to="pagination.prev_page_url" >
+      <router-link   class="m-2 btn text-light  btn btn-primary"  :to="this.pagination.prev_page_url" >
         Go back
       </router-link>
       <h1 class="mt-5">{{ post.title }}</h1>
