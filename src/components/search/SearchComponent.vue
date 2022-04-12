@@ -14,7 +14,7 @@
     </b-col>
 
   </b-row>
-  <button   class="m-2 btn text-light  btn btn-primary"  @click="pagination.prev_page_url">
+  <button   class="m-2 btn text-light  btn btn-primary"  @click="goToBack">
     Go back
   </button>
 </b-container>
@@ -29,7 +29,8 @@ export default {
     }
   },
   mounted() {
-     this.searchdata()
+     this.searchdata(),
+       this.goToBack()
   },
 
   methods:{
@@ -44,7 +45,6 @@ export default {
   async getPosts(){
     await this.axios.get(`post?page=` + this.pagination.current_page).then(response=>{
       console.log(response.data.posts)
-      this.posts = response.data.posts.data
       this.pagination  = response.data.posts ;
       console.log(response.data.posts )
     }).catch(error=>{
@@ -53,7 +53,9 @@ export default {
     })
   },
 
-
+  goToBack(){
+    this.$router.push({path: this.pagination.prev_page_url});
+  }
 }
 </script>
 
