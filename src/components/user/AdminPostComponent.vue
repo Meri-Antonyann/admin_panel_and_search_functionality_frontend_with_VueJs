@@ -24,7 +24,7 @@
           <td>{{ post.text }}</td>
 
           <td >
-            <img v-for="(img,key) in post.files" :key="key" :src="'https://projectwithlaravelvuejs.herokuapp.com/app/storage/app/public/images' + img.name" alt="img" style="width: 50px; height: 50px;" class="m-1">
+            <img v-for="(img,key) in post.files" :key="key" :src="'https://projectwithlaravelvuejs.herokuapp.com/images' + img.name" alt="img" style="width: 50px; height: 50px;" class="m-1">
           </td>
 
           <td>
