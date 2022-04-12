@@ -82,10 +82,7 @@
   methods:{
     async getPosts(){
       await this.axios.get(`post?page=` + this.pagination.current_page,{
-        id: {
-          'page': this.pagination.currentPage,
-
-        },
+        id:this.pagination.currentPage
       }).then(response=>{
         console.log(response.data.posts)
         this.posts = response.data.posts.data
