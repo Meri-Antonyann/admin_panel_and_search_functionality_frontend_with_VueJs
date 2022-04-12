@@ -2,7 +2,7 @@
 <b-container>
   <b-row>
     <b-col class="text-center mt-5 text-warning ">
-      <h1>{{ post.title }}</h1>
+      <h1 class="mt-5">{{ post.title }}</h1>
       <h3>{{ post.description }}</h3>
       <h2>{{ post.text }}</h2>
       <div>
