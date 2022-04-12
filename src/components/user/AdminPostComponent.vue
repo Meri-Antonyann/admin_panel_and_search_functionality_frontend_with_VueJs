@@ -73,8 +73,10 @@
 
   mounted() {
    this.getPosts();
-   this.gettoken()
+   this.gettoken();
+
   },
+
 
   methods:{
     async getPosts(){
