@@ -50,7 +50,6 @@
           next-text="Next"
           last-text="Last"
           @input ="getPosts"
-
         ></b-pagination>
         <p class="mt-3"> Page: {{ pagination.current_page }} </p>
       </table>
