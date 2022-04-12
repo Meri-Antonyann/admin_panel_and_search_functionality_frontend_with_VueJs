@@ -4,7 +4,7 @@
   <b-row>
 
     <b-col class="text-center mt-5 text-warning ">
-      <button   class="m-2 btn text-light  btn btn-primary"  @click="$router.history.go(pagination.prev_page_url)">
+      <button   class="m-2 btn text-light  btn btn-primary"  @click="$router.history.go(-1)">
         Go back
       </button>
       <h1 class="mt-5">{{ post.title }}</h1>
@@ -28,8 +28,7 @@ export default {
     }
   },
   mounted() {
-     this.searchdata(),
-       this.getPosts()
+     this.searchdata()
   },
 
   methods:{
@@ -40,18 +39,6 @@ export default {
        })
      }
     },
-
-  async getPosts(){
-    await this.axios.get(`post?page=` + this.pagination.current_page).then(response=>{
-      console.log(response.data.posts)
-
-      this.pagination  = response.data.posts ;
-      console.log(response.data.posts )
-    }).catch(error=>{
-      console.log(error)
-
-    })
-  },
 
 
 }
