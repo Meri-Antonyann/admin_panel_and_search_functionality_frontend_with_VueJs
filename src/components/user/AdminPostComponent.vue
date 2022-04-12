@@ -50,7 +50,7 @@
           next-text="Next"
           last-text="Last"
           @input ="getPosts"
-          :to='{name:"Posts",query:{page:this.pagination.current_page}}'
+
         ></b-pagination>
         <p class="mt-3"> Page: {{ pagination.current_page }} </p>
       </table>
