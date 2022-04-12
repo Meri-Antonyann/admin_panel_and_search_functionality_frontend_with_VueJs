@@ -17,9 +17,9 @@
           <b-navbar-item  >
             <router-link to="/profile" class="m-2" v-if="token"> Create post </router-link>
           </b-navbar-item>
-          <b-navbar-item  >
+
             <button   class="m-2 btn btn-secondary text-light"  @click="$router.go(-1)"> Go back </button>
-          </b-navbar-item>
+
         </b-navbar-nav>
 
 
