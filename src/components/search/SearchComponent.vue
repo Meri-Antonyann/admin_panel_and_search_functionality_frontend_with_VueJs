@@ -4,9 +4,9 @@
   <b-row>
 
     <b-col class="text-center mt-5 text-warning ">
-      <router-link   class="m-2 btn text-light  btn btn-primary"  :to="this.pagination.prev_page_url" >
+      <button   class="m-2 btn text-light  btn btn-primary"  @click="pagination.prev_page_url">
         Go back
-      </router-link>
+      </button>
       <h1 class="mt-5">{{ post.title }}</h1>
       <h3>{{ post.description }}</h3>
       <h2>{{ post.text }}</h2>
