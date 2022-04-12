@@ -1,5 +1,8 @@
 <template>
 <b-container>
+  <button   class="m-2 btn text-light  btn btn-primary"  @click="$router.history.go(-1)">
+    Go back
+  </button>
   <b-row>
     <b-col class="text-center mt-5 text-warning ">
       <h1 class="mt-5">{{ post.title }}</h1>
