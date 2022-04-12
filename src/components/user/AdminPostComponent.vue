@@ -86,6 +86,7 @@
         console.log(response.data.posts)
         this.posts = response.data.posts.data
         this.pagination  = response.data.posts ;
+        this.pagination.current_page  = response.data.posts.current_page ;
         console.log(response.data.posts )
       }).catch(error=>{
         console.log(error)
