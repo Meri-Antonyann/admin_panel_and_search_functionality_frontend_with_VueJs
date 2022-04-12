@@ -90,9 +90,7 @@
 
       })
     },
-    onPageChange() {
-      this.getPosts();
-    },
+
 
     gettoken(){
           this.token = localStorage.getItem('access_token')

@@ -23,7 +23,7 @@
 
         <b-navbar-nav class="ml-auto">
           <b-navbar-item  >
-            <button   class="m-2 btn btn-light text-light"  @click="$router.go(-1)"> Go back </button>
+            <button   class="m-2 btn btn-secondary text-light"  @click="$router.go(-1)"> Go back </button>
           </b-navbar-item>
           <b-navbar-item class="h5 text-light" v-if="token" >
              {{data.name}}
