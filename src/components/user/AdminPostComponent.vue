@@ -39,19 +39,19 @@
           <td colspan="4" align="center">No Posts Found.</td>
         </tr>
         </tbody>
-<!--        <pagination :data="posts" @pagination-change-page="getPosts"></pagination>-->
-<!--        <pagination :data="posts" @pagination-change-page="getPosts" ></pagination>-->
-<!--        <pagination :data="posts">-->
-<!--          <span slot="prev-nav">&lt; Previous</span>-->
-<!--          <span slot="next-nav">Next &gt;</span>-->
-<!--        </pagination>-->
+
 
         <b-pagination
-          v-model="pagination.current"
-          :length="pagination.total"
-          @input="onPageChange"
+          v-model="pagination.current_page"
+          :total-rows="pagination.total"
+          :per-page=" pagination.per_page"
+          first-text="First"
+          prev-text="Prev"
+          next-text="Next"
+          last-text="Last"
+          @input ="getPosts"
         ></b-pagination>
-
+        <p class="mt-3"> Page: {{ pagination.current_page }}</p>
       </table>
 
     </div>
@@ -60,17 +60,13 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
- export default {
+  export default {
 
 
   data(){
     return {
       posts:[],
-      pagination: {
-        current: 1,
-        total: 0
-      },
+      pagination: {},
       token:null
     }
   },
@@ -87,9 +83,8 @@ import { mapGetters } from "vuex";
       await this.axios.get('post?page=' + this.pagination.current).then(response=>{
         console.log(response.data.posts)
         this.posts = response.data.posts.data
-        this.pagination.current = response.data.posts.current_page;
-        console.log(response.data.posts.current_page)
-        this.pagination.total = response.data.posts.last_page;
+        this.pagination  = response.data.posts ;
+        console.log(response.data.posts )
       }).catch(error=>{
         console.log(error)
 
