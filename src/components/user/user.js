@@ -5,6 +5,6 @@ import Edit from "./EditPostComponent";
 
 export default [
   { path: '/profile', name: 'Profile', component: Profile },
-  { path: '/posts/:id', name: 'Posts', component: Posts },
+  { path: '/posts', name: 'Posts', component: Posts },
   { path: '/edit', name: 'Edit', component: Edit },
 ]
