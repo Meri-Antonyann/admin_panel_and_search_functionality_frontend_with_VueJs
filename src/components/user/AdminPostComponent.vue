@@ -51,7 +51,7 @@
           last-text="Last"
           @input ="getPosts"
         ></b-pagination>
-        <p class="mt-3"> Page: {{ pagination.current_page }}</p>
+        <p class="mt-3"> Page: {{ pagination.current_page }} </p>
       </table>
 
     </div>
@@ -80,13 +80,10 @@
 
   methods:{
     async getPosts(){
-
-
       await this.axios.get('post?page=' + this.pagination.current_page).then(response=>{
         console.log(response.data.posts)
         this.posts = response.data.posts.data
         this.pagination  = response.data.posts ;
-        this.pagination.current_page  = response.data.posts.current_page ;
         console.log(response.data.posts )
       }).catch(error=>{
         console.log(error)
