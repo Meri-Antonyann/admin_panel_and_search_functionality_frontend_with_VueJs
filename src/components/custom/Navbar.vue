@@ -8,18 +8,16 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-navbar-item  >
-            <router-link to="/" class="m-2">Home</router-link>
-          </b-navbar-item>
-          <b-navbar-item  >
-            <router-link to="/posts"  class="m-2">Posts</router-link>
-          </b-navbar-item>
-          <b-navbar-item  >
-            <router-link to="/profile" class="m-2" v-if="token"> Create post </router-link>
-          </b-navbar-item>
-
-            <button   class="m-2 btn btn-secondary text-light"  @click="$router.go(-1)"> Go back </button>
-
+            <b-navbar-item  >
+              <button   class="m-2 btn btn-secondary text-light"  @click="$router.go(-1)"> Go back </button>
+              <router-link to="/" class="m-2">Home</router-link>
+            </b-navbar-item>
+            <b-navbar-item  >
+              <router-link to="/posts"  class="m-2">Posts</router-link>
+            </b-navbar-item>
+            <b-navbar-item  >
+              <router-link to="/profile" class="m-2" v-if="token"> Create post </router-link>
+            </b-navbar-item>
         </b-navbar-nav>
 
 
