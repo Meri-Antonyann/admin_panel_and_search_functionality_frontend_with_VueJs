@@ -18,7 +18,7 @@
         <tr v-for="(post,key) in posts" :key="key">
 
           <td>
-          <router-link class="h4 text-secondary" :to='{name:"Search",params:{id:post.id}}'>  {{ post.title }} </router-link>
+          <router-link class="h4 text-secondary" :to='{name:"Search",params:{id:post.id , query: { page:this.pagination.current_page}}}'>  {{ post.title }} </router-link>
           </td>
           <td>{{ post.description }}</td>
           <td>{{ post.text }}</td>
@@ -84,6 +84,7 @@
         console.log(response.data.posts)
         this.posts = response.data.posts.data
         this.pagination  = response.data.posts ;
+
         console.log(response.data.posts )
       }).catch(error=>{
         console.log(error)
