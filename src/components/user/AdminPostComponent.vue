@@ -18,7 +18,7 @@
         <tr v-for="(post,key) in posts" :key="key">
 
           <td>
-          <router-link class="h4 text-secondary" :to='{name:"Search",params:{id:post.id , query: { page:this.pagination.current_page}}}'>  {{ post.title }} </router-link>
+          <router-link class="h4 text-secondary" :to='{name:"Search",params:{id:post.id}}'>  {{ post.title }} </router-link>
           </td>
           <td>{{ post.description }}</td>
           <td>{{ post.text }}</td>
@@ -50,6 +50,7 @@
           next-text="Next"
           last-text="Last"
           @input ="getPosts"
+          :to='{name:"Posts",query:{page:this.pagination.current_page}}'
         ></b-pagination>
         <p class="mt-3"> Page: {{ pagination.current_page }} </p>
       </table>
@@ -84,7 +85,6 @@
         console.log(response.data.posts)
         this.posts = response.data.posts.data
         this.pagination  = response.data.posts ;
-
         console.log(response.data.posts )
       }).catch(error=>{
         console.log(error)
