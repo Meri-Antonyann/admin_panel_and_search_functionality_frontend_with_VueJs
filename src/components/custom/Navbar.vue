@@ -9,7 +9,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
             <b-navbar-item   class="m-2 btn text-light  "  @click="$router.history.go(-1)">
-             <p>Go back </p>
+             Go back
             </b-navbar-item>
             <b-navbar-item  >
               <router-link to="/" class="m-2">Home</router-link>
