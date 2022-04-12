@@ -4,7 +4,9 @@
   <b-row>
 
     <b-col class="text-center mt-5 text-warning ">
-
+      <button   class="m-2 btn text-light  btn btn-primary"  @click="$router.history.go(pagination.prev_page_url)">
+        Go back
+      </button>
       <h1 class="mt-5">{{ post.title }}</h1>
       <h3>{{ post.description }}</h3>
       <h2>{{ post.text }}</h2>
@@ -14,9 +16,6 @@
     </b-col>
 
   </b-row>
-  <button   class="m-2 btn text-light  btn btn-primary"  @click="goToBack">
-    Go back
-  </button>
 </b-container>
 </template>
 
@@ -30,7 +29,7 @@ export default {
   },
   mounted() {
      this.searchdata(),
-       this.goToBack()
+       this.getPosts()
   },
 
   methods:{
@@ -45,6 +44,7 @@ export default {
   async getPosts(){
     await this.axios.get(`post?page=` + this.pagination.current_page).then(response=>{
       console.log(response.data.posts)
+
       this.pagination  = response.data.posts ;
       console.log(response.data.posts )
     }).catch(error=>{
@@ -53,9 +53,7 @@ export default {
     })
   },
 
-  goToBack(){
-    this.$router.push({path: this.pagination.prev_page_url});
-  }
+
 }
 </script>
 
