@@ -4,23 +4,19 @@
   <b-row>
 
     <b-col class="text-center mt-5 text-warning">
-      <button class="m-2 btn text-light btn-primary"  @click="goBack">
+      <button class="m-2 mt-5 btn text-light btn-secondary"  @click="goBack">
         Go back
       </button>
 
-<!--      <button class="m-2 btn text-light btn-primary"  @click="$router.go(-1)">-->
-<!--        Go back-->
-<!--      </button>-->
-
-
-
-      <h1 class="mt-5">{{ post.title }}</h1>
+      <h1 class="mt-3">{{ post.title }}</h1>
       <h3>{{ post.description }}</h3>
       <h2>{{ post.text }}</h2>
 
-<!--      <div>-->
-<!--        <img v-for="(img,key) in post.files" :key="key" :src="'https://projectwithlaravelvuejs.herokuapp.com/images/' + img.name" alt="img" style="width: 200px; height: 200px;" class="m-1">-->
-<!--      </div>-->
+      <div>
+        <img src="../../assets/defaultimage.jpg" alt="img" style="width: 50px; height: 50px;" class="m-1">
+        <img src="../../assets/defaultimage.jpg" alt="img" style="width: 50px; height: 50px;" class="m-1">
+        <img src="../../assets/defaultimage.jpg" alt="img" style="width: 50px; height: 50px;" class="m-1">
+      </div>
     </b-col>
 
   </b-row>
@@ -41,10 +37,7 @@ export default {
 
   methods:{
     goBack(){
-         console.log(this.$route.query.page)
-         this.$router.push({ name: "Posts", query: {page: this.$route.query.page}})
-
-         //  this.$router.push({ path: `/posts?${this.$route.query.page}` })
+      this.$router.push({ name: "Posts", query: {page: this.$route.query.page}})
     },
 
      async searchdata(){

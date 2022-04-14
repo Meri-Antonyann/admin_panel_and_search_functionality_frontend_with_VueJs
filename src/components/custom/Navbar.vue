@@ -8,24 +8,18 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
+          <router-link to="/" class="m-2">Home</router-link>
+          <router-link to= "/posts" class="m-2">Posts</router-link>
+          <router-link to="/profile" class="m-2" v-if="token"> Create post </router-link>
 
-            <b-navbar-item  >
-              <router-link to="/" class="m-2">Home</router-link>
-            </b-navbar-item>
-            <b-navbar-item  >
-              <router-link to= "/posts" class="m-2">Posts</router-link>
-            </b-navbar-item>
-            <b-navbar-item  >
-              <router-link to="/profile" class="m-2" v-if="token"> Create post </router-link>
-            </b-navbar-item>
         </b-navbar-nav>
 
 
         <b-navbar-nav class="ml-auto">
 
-          <b-navbar-item class="h5 text-light" v-if="token" >
-             {{data.name}}
-          </b-navbar-item>
+          <span class="h5 text-light mt-2" v-if="token" >
+          You are logged in!
+          </span>
 
 
           <b-nav-item-dropdown text="Action" right>
@@ -42,7 +36,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+
 
 export default {
   data(){
@@ -51,36 +45,20 @@ export default {
       token: null
     }
   },
-   mounted() {
-    this.Usertoken(),
-      this.UserData()
-  },
   methods: {
-     Usertoken(){
-        this.token = localStorage.getItem('access_token')
-      },
-
-    ...mapActions(["GET_USER_DATA"]),
-    ...mapGetters(['getUser']),
-    async UserData() {
-      await this.GET_USER_DATA()
-        .then(res => {
-          if(res) {
-            this.data = this.getUser()
-            console.log(this.getUser())
-          }
-          localStorage.setItem('email', this.data.email)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+    Usertoken(){
+      this.token = localStorage.getItem('access_token')
     },
 
     logout(){
-       localStorage.removeItem('access_token')
+      localStorage.removeItem('access_token')
       this.$router.push({name: "Login"})
     }
-  }
+  },
+  mounted() {
+    this.Usertoken()
+
+  },
 
 }
 </script>

@@ -24,9 +24,11 @@
           <td>{{ post.description }}</td>
           <td>{{ post.text }}</td>
 
-<!--          <td >-->
-<!--            <img v-for="(img,key) in post.files" :key="key" :src="'https://projectwithlaravelvuejs.herokuapp.com/images' + img.name" alt="img" style="width: 50px; height: 50px;" class="m-1">-->
-<!--          </td>-->
+          <td >
+            <img src="../../assets/defaultimage.jpg" alt="img" style="width: 50px; height: 50px;" class="m-1">
+            <img src="../../assets/defaultimage.jpg" alt="img" style="width: 50px; height: 50px;" class="m-1">
+            <img src="../../assets/defaultimage.jpg" alt="img" style="width: 50px; height: 50px;" class="m-1">
+          </td>
 
           <td>
             <router-link :to='{name:"Edit",params:{id:post.id}}' v-if="token" class="btn btn-warning">Edit</router-link>
@@ -43,15 +45,17 @@
 
 
       </table>
-      <b-pagination
+      <b-pagination-nav
         v-model= "currentPage"
-        :total-rows="rows"
+        :number-of-pages="rows"
+        :link-gen="linkGen"
         :per-page="perPage"
         first-text="First"
         prev-text="Prev"
         next-text="Next"
         last-text="Last"
-      ></b-pagination>
+        use-router
+      ></b-pagination-nav>
       <p class="mt-3"> Page: {{ currentPage }} </p>
     </div>
   </div>
@@ -73,11 +77,12 @@
   },
     computed: {
       rows() {
-        return this.posts.length
+        return this.posts.length/this.perPage + 1
       },
       infoParam(){
         return this.$router.currentRoute.query.page
-      }
+      },
+
     },
 
 
@@ -90,9 +95,11 @@
    methods:{
 
      async getPosts(){
+
        if (this.infoParam){
          this.currentPage = this.infoParam
        }
+
        await this.axios.get('post').then(response=>{
          this.posts = response.data.posts;
          console.log(this.posts , 'this.posts')
@@ -106,9 +113,13 @@
      },
 
      paginationButtonClick(){
+       console.log(this.currentPage)
        this.paginatedPosts = this.posts.slice((this.currentPage - 1) * this.perPage , ((this.currentPage - 1) * this.perPage) + this.perPage )
        this.$router.push({ name: "Posts", query: {page: this.currentPage}}).catch(()=>{});
+     },
 
+     linkGen(pageNum) {
+       return pageNum === 1 ? '?' : `?page=${pageNum}`
      },
 
      gettoken(){
@@ -117,19 +128,20 @@
 
     clear(id){
        if (confirm('Do you want to delete this post?'))
-         this.axios.post(`postdel/${id}`).then(response=>{
-          this.getPosts()
+           this.axios.post(`postdel/${id}`).then(response=>{
+           this.getPosts()
 
         }).catch(error=>{
           console.log(error)
         })
-      }
+       }
     },
 
     watch: {
       currentPage(){
         this.paginationButtonClick()
-      }
+      },
+
     }
 }
 </script>
