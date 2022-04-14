@@ -97,11 +97,7 @@ export default {
       let valid = await this.$refs.observer.validate();
       if (!valid) return false;
       await this.LOGIN_USER(this.formData).then((res) => {
-        if(res)
-
-          this.$router.push({name: "Profile"}
-          )
-
+        if(res) this.$router.push({name: "Profile"}  )
 
       }).catch(err => {
         if(err) console.log(err);

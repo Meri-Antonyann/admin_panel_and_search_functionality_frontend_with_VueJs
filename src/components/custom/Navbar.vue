@@ -13,7 +13,7 @@
               <router-link to="/" class="m-2">Home</router-link>
             </b-navbar-item>
             <b-navbar-item  >
-              <router-link to="/posts"  class="m-2">Posts</router-link>
+              <router-link to= "/posts" class="m-2">Posts</router-link>
             </b-navbar-item>
             <b-navbar-item  >
               <router-link to="/profile" class="m-2" v-if="token"> Create post </router-link>
@@ -31,9 +31,6 @@
           <b-nav-item-dropdown text="Action" right>
              <b-dropdown-item href="/login" v-if="!token"> Login </b-dropdown-item>
             <b-dropdown-item  v-if="token" @click="logout"> Log out</b-dropdown-item>
-
-
-
           </b-nav-item-dropdown>
 
         </b-navbar-nav>
