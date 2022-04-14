@@ -21,6 +21,7 @@
           <td>
           <router-link class="h4 text-secondary" :to='{name:"Search", params:{id:post.id}, query:{page: currentPage }  }'>  {{ post.title }} </router-link>
           </td>
+          <td>{{ post.id }}</td>
           <td>{{ post.description }}</td>
           <td>{{ post.text }}</td>
 
