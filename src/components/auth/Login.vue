@@ -35,6 +35,8 @@
                   />
                 </b-form-group>
               </validation>
+
+
               <validation
                 name="password"
                 rules="required|min:8"
@@ -55,6 +57,8 @@
                   />
                 </b-form-group>
               </validation>
+
+
               <div class="mt-3">
                 <b-button
                   variant="primary"

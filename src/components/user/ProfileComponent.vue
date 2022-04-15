@@ -15,53 +15,59 @@
          <b-col>
            <h4 class="text-center">Add Post</h4>
            <validation-observer ref="observer">
-          <b-form @submit.prevent="savepost" >
+              <b-form @submit.prevent="savepost" >
             <validation
               name="title"
-              rules="required|min:4"
+              rules="required"
             >
             <b-form-group
               id="fieldset-horizontal"
               label-cols-sm="4"
               label-cols-lg="3"
               label="Enter Title"
-              label-for="input-horizontal"
+              label-for="title"
               slot-scope="{ errors }"
               :invalid-feedback="errors[0]"
             >
               <b-form-input
+                id="title"
                 v-model="title"
-                id="input-horizontal">
                 :state="errors[0] ? false : null"
                 trim
+              >
+
               </b-form-input>
             </b-form-group>
             </validation>
+
+
             <validation
               name="description"
               rules="required|min:4"
             >
             <b-form-group
-              id="desc"
+              id="description"
               label-cols-sm="4"
               label-cols-lg="3"
               label="Short description"
-              label-for="input-horizontal"
+              label-for="description"
               slot-scope="{ errors }"
               :invalid-feedback="errors[0]"
 
             >
               <b-form-input
                 v-model="description"
-                id="desc">
+                id="description"
                 :state="errors[0] ? false : null"
                 trim
+              >
+
               </b-form-input>
             </b-form-group>
             </validation>
 
             <validation
-              name="description"
+              name="text"
               rules="required"
             >
             <b-form-group
@@ -69,20 +75,22 @@
               label-cols-sm="4"
               label-cols-lg="3"
               label="Text"
-              label-for="input-horizontal"
+              label-for="text"
               slot-scope="{ errors }"
               :invalid-feedback="errors[0]"
             >
               <b-form-textarea
                 v-model="text"
-                id="desc">
+                id="text"
                 :state="errors[0] ? false : null"
                 trim
+              >
+
               </b-form-textarea>
             </b-form-group>
             </validation>
               <validation
-                name="image"
+                name="file"
                 rules="required"
               >
             <b-form-group
@@ -100,9 +108,11 @@
                 v-on:change="changefile"
                 v-model="files"
                 multiple
-                placeholder="Choose a file or drop it here..." >
+                placeholder="Choose a file or drop it here..."
                 :state="errors[0] ? false : null"
                 trim
+              >
+
               </b-form-file>
 
             </b-form-group>
@@ -173,7 +183,6 @@ export default {
           'content-type': 'multipart/form-data',
         }
       }
-
       let formData = new FormData();
 
       formData.append('title', this.title);
