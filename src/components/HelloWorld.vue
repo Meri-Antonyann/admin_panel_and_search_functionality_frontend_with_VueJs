@@ -24,7 +24,7 @@
           </b-input-group>
 
            <ul v-if="posts.length > 0">
-             <router-link  v-for="post in posts" :key="post.id" :to='{name:"Search",params:{id:post.id}}'>
+             <router-link  v-for="post in posts" :key="post.id" :to='{name:"Search",params:{id:post.id}, query:{page: "search"}}'>
              <li class="text-secondary  ">
                <span class="h5">{{post.title}}</span>
                {{post.description}}
